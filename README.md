@@ -12,6 +12,10 @@ Python command line version of the game of greed(farkle, 10,000, etc)
 After having python 3 and opening the file, respond to the given prompt.
 Other features coming soon
 
+Once completed, this will be a command line version of the game farkle. 
+This is a dice rolling game that consists of 6 dice. You roll all six and then, depending on what you roll, you get points or a re-roll and can bank points then your opponent goes. First to 10,000 points wins.
+The scoring system is as follows:
+
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. This is also an area which you can include any visuals; flow charts, example usage gifs, screen captures, etc.-->
 Uses Python 3, random, pytest, command line, github, pipenv shell
