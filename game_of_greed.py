@@ -3,11 +3,13 @@ import random
 
 class Game:
     def __init__(self, print_funct=print, input_func=input):
+        """initiates new instance of the game"""
         self._print = print_func
         self._input = input_func
 
 
     def play(self):
+        """begins the game by welcoming user, prompting them to begin"""
         print('Welcome to Game of Greed')
         answer = input('Wanna play? ')
 
@@ -17,6 +19,7 @@ class Game:
             print('OK. Maybe another time.')
 
     def calculate_score(self, dice_roll):
+        """randomizes 6 dice rolls"""
         dice = ()
 
         d1 = random.randint(1, 6).append(dice)
