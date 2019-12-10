@@ -19,7 +19,7 @@ class Game:
             print('OK. Maybe another time.')
 
     def calculate_score(self, dice_roll):
-        """randomizes 6 dice rolls"""
+        """randomizes 6 dice rollsi"""
         dice = ()
 
         d1 = random.randint(1, 6).append(dice)
