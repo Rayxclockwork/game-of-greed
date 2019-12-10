@@ -1,9 +1,13 @@
 import random
 
+
 class Game:
+    def __init__(self, print_funct=print, input_func=input):
+        self._print = print_func
+        self._input = input_func
 
 
-    def play():
+    def play(self):
         print('Welcome to Game of Greed')
         answer = input('Wanna play? ')
 
@@ -11,7 +15,20 @@ class Game:
             print('Great! Check back tomorrow. :D')
         else:
             print('OK. Maybe another time.')
-    play()
 
-    def calculate_score():
+    def calculate_score(self, dice_roll):
+        dice = ()
 
+        d1 = random.randint(1, 6).append(dice)
+        d2 = random.randint(1, 6).append(dice)
+        d3 = random.randint(1, 6).append(dice)
+        d4 = random.randint(1, 6).append(dice)
+        d5 = random.randint(1, 6).append(dice)
+        d6 = random.randint(1, 6).append(dice)
+
+
+
+if __name__ == "__main__":
+    game = Game()
+
+    game.play()
