@@ -7,28 +7,11 @@ def test_game_instance():
     game = Game()
     assert game
 
+def test_greeting():
+    expected = print('Great! Check back tomorrow. :D')
+    actual = game.play(input('y'))
+    assert actual == expected
 
-# def test_greeting():
-#     prints = ["Welcome to Game of Greed"]
-#     prompts = ['Wanna play? ']
-#     responses = ['y']
-
-#     def testing_print(*args):
-#         if len(prints):
-#             current_print = prints.pop(0)
-#             assert args[0] == current_print
-
-#     def testing_input(*args):
-#         if len(prompts):
-#             current_prompt = prompts.pop(0)
-#             assert args[0] == current_prompt
-
-#         if len(responses):
-#             current_response = responses.pop(0)
-#             return current_response
-
-#     game = Game(testing_print, testing_input)
-#     game.play()
 
 
 def test_calculate_score(game, dice, expected):
