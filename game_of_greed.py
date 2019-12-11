@@ -43,29 +43,27 @@ class Game:
                     score += 1500
                     return score
 
-            """Less than 3 fives"""
-            if count[i] < 3 and i == 5:
-                score += (count[i] * 50)
+        """Less than 3 fives"""
+        if count[i] < 3 and i == 5:
+            score += (count[i] * 50)
 
-            """Less than 3 ones"""
-            if count[i] < 3 and i == 1:
-                score += (count[i] * 100)
+        """Less than 3 ones"""
+        if count[i] < 3 and i == 1:
+            score += (count[i] * 100)
 
-            """Three ones and any extra ones"""
-            if count[i] >= 3 and i == 1:
+        """Three ones and any extra ones"""
+        if count[i] >= 3 and i == 1:
+            score += 1000
+            count[i] -= 3
+            for i in range(count[i]):
                 score += 1000
-                count[i] -= 3
-                for i in range(count[i]):
-                    score += 1000
-                continue
 
-            """Three of a kind for anything other than ones"""
-            if count[i] >= 3 and i != 1:
-                score += (i * 100)
-                count[i] -= 3
-                for i in range(count[i]):
-                    score += 100
-                continue
+        """Three of a kind for anything other than ones"""
+        if count[i] >= 3 and i != 1:
+            score += (i * 100)
+            count[i] -= 3
+            for i in range(count[i]):
+                score += 100
 
         return score
 
