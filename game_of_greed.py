@@ -51,19 +51,6 @@ class Game:
         if count[i] < 3 and i == 1:
             score += (count[i] * 100)
 
-        """Three ones and any extra ones"""
-        if count[i] >= 3 and i == 1:
-            score += 1000
-            count[i] -= 3
-            for i in range(count[i]):
-                score += 1000
-
-        """Three of a kind for anything other than ones"""
-        if count[i] >= 3 and i != 1:
-            score += (i * 100)
-            count[i] -= 3
-            for i in range(count[i]):
-                score += 100
 
         return score
 
