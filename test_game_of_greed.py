@@ -1,4 +1,4 @@
-# import random
+import random
 import pytest
 from game_of_greed import Game
 
@@ -7,14 +7,14 @@ def test_game_instance():
     game = Game()
     assert game
 
-def test_greeting():
-    expected = print('Great! Check back tomorrow. :D')
-    actual = game.play(input('y'))
-    assert actual == expected
+# def test_greeting():
+#     expected = print('Great! Check back tomorrow. :D')
+#     actual = Game.play()
+#     assert actual == expected
 
 
 
-def test_calculate_score(game, dice, expected):
+def test_calculate_score(game, dice,  expected):
     actual = game.calculate_score(dice)
     assert actual == expected
 
@@ -86,6 +86,12 @@ def test_three_pairs(game):
     assert expected == actual
 
 
+def test_three_of_a_kind(game):
+    expected = 400
+    actual = game.calculate_score((4, 4, 4, 3, 2, 5))
+    assert expected == actual
+
+
 # @pytest.mark.skip('pending')
 # def test_two_trios(game):
 #     expected =
@@ -106,6 +112,9 @@ def test_three_pairs(game):
 #     actual = game.calculate_score(())
 #     assert actual == expected
 
+@pytest.fixture()
+def _do_roll(self, num_dice):
+        return tuple(random.randint(1, 6) for i in range(num_dice))
 
 @pytest.fixture()
 def game():

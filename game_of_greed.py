@@ -1,4 +1,4 @@
-# import random
+import random
 import collections
 
 
@@ -17,6 +17,9 @@ class Game:
             print('Great! Check back tomorrow. :D')
         else:
             print('OK. Maybe another time.')
+
+    def _do_roll(self, num_dice):
+        return tuple(random.randint(1, 6) for i in range(num_dice))
 
     def calculate_score(self, dice):
         """randomizes 6 dice rolls"""
@@ -43,16 +46,21 @@ class Game:
                     score += 1500
                     return score
 
-        """Less than 3 fives"""
-        if count[i] < 3 and i == 5:
-            score += (count[i] * 50)
+            """Three of a kind for anything other than ones"""
+            if count[i] == 3 and i != 1:
+                score += (i * 100)
+                continue
 
-        """Less than 3 ones"""
-        if count[i] < 3 and i == 1:
-            score += (count[i] * 100)
+            """Less than 3 fives"""
+            if count[i] < 3 and i == 5:
+                score += (count[i] * 50)
+                continue
 
+            """Less than 3 ones"""
+            if count[i] < 3 and i == 1:
+                score += (count[i] * 100)
 
-        return score
+            return score
 
 
 if __name__ == "__main__":
