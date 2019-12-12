@@ -76,13 +76,33 @@ class Game:
                 print('Would you like to bank points or roll again')
                 if input('bank'):
                     dice_roll()
+                    num_dice -= len(keepers)
                 else:
                     return score
                 break
         #roll dice, calc score, prompt for save dice or bank points
         # if zilch, new turn
 
+    def validate_roll(self, roll):
+
+        while True:
+            self._print(roll)
+
+            keep_response = self._input('Which would you like to keep?')
+
+            keepers = tuple(int(char) for char in keep_response)
+
+            if self.validate(roll, keepers):
+                return keepers
+            else:
+                self._print('Invalid answer')
+
+    def validate(self, roll, keepers):
+        roll_counter = Counter(roll)
+        keepers_counter = Counter(keepers)
+        return len(keepers_counter - roll_counter) == 0
+
 if __name__ == "__main__":
     game = Game()
 
-    game.begin()
+    game.begin(1)

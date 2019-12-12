@@ -216,7 +216,8 @@ def test_flow_zilch():
 
     assert mp.mop_up()
 
-
+dice_to_keep_text = self._input('Enter dice to keep: ')
+keepers = self.validate_roll(dice_to_keep_text)
 ###############################################
 #####  Day 3 - Coming Soon               ######
 ###############################################
