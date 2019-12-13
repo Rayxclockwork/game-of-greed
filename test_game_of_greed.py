@@ -2,6 +2,8 @@
 import pytest
 from game_of_greed import Game
 
+## Tests written by Raven Delaney, not class test suites
+
 def test_game_instance():
     game = Game()
     assert game

@@ -189,7 +189,7 @@ def test_flow_scenario_2():
 
     game._do_roll = mp.mock_roll
 
-    game.play(1)
+    game.play()
 
     assert mp.mop_up()
 
@@ -212,12 +212,12 @@ def test_flow_zilch():
 
     # Easier to test with hitting _do_round directly,
     # no prob, but notice that protected method use is risky
-    game._do_round()
+    game.each_turn()
 
     assert mp.mop_up()
 
-dice_to_keep_text = self._input('Enter dice to keep: ')
-keepers = self.validate_roll(dice_to_keep_text)
+# dice_to_keep_text = self._input('Enter dice to keep: ')
+# keepers = self.validate_roll(dice_to_keep_text)
 ###############################################
 #####  Day 3 - Coming Soon               ######
 ###############################################
