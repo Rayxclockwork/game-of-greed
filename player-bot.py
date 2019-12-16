@@ -11,7 +11,6 @@ class BotPlayer:
     def _input(self, *args):
         print(args[0], 'n')
         return 'n'
-        # return input(args[0])
 
 class ParticipationTrophy:
 

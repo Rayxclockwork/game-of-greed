@@ -1,5 +1,5 @@
 import random
-import collections
+from collections import Counter
 
 class CheatingError:
     pass
@@ -29,7 +29,7 @@ class Game:
         """randomizes 6 dice rolls"""
         score = 0
         pairs = 0
-        count = collections.Counter(dice)
+        count = Counter(dice)
 
         """Grand Mcflurry"""
         if count[5] == 4 and count[1] == 1:
