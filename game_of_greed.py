@@ -10,7 +10,7 @@ class Game:
         self._print = print_func
         self._input = input_func
 
-    def begin(self, num_rounds=10):
+    def begin(self):
         """begins the game by welcoming user, prompting them to begin"""
         print('Welcome to Game of Greed')
         answer = input('Wanna play? ')
@@ -22,7 +22,6 @@ class Game:
 
     def dice_roll(self, num_dice):
         """creates instance of 6 dice being rolled"""
-        num_dice = 6
         return tuple(random.randint(1, 6) for i in range(num_dice))
 
     def calculate_score(self, dice):
@@ -77,9 +76,11 @@ class Game:
             self._print(f'Rolling {num_dice} dice')
 
             roll = self.dice_roll(num_dice)
+            self._print(roll)
             check_score = self.calculate_score(roll)
 
             if check_score == 0:
+
                 self._print('Well, shoot. No points this time')
                 return 0
 
@@ -100,14 +101,14 @@ class Game:
             roll_again_response = self._input('Roll again? ')
 
             if not roll_again_response == 'y':
-                break
+                self.play()
 
         return score
 
     def validate_roll(self, roll):
         """Handles roll of dice and numbers returned/dice kept"""
         while True:
-            self._print(roll)
+
 
             keep_response = self._input('Which would you like to keep?')
 
@@ -132,7 +133,8 @@ class Game:
         self.score = 0
         round_num = 1
 
-        for i in range(1, self.num_rounds + 1):
+
+        for i in range(1, round_num + 1):
             round_score = self.each_turn()
 
             self._print(f'You banked {round_score} points in round {round_num}')
